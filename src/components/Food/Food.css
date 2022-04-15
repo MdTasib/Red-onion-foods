@@ -1,0 +1,17 @@
+.card p {
+	font-weight: 800;
+	font-size: 18px;
+	margin: 0;
+}
+
+.card small {
+	font-size: 14px;
+}
+
+.card img {
+	width: 70%;
+	object-fit: cover !important;
+}
+
+.card:hover {
+}

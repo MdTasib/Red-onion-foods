@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import useFood from "../../Hooks/useFood";
-import Breakfast from "../Breakfast/Breakfast";
 import CustomLink from "../CustomLink/CustomLink";
-import Dinner from "../Dinner/Dinner";
 import Food from "../Food/Food";
-import Lunch from "../Lunch/Lunch";
 
 const FoodContainer = () => {
 	const [foods, setFoods] = useFood();
@@ -46,19 +42,23 @@ const FoodContainer = () => {
 						<div className='collapse navbar-collapse' id='navbarNav'>
 							<ul className='navbar-nav mx-auto'>
 								<li className='nav-item mx-3'>
-									<button onClick={handleBreakfast} className='btn btn-primary'>
+									<button
+										onClick={handleBreakfast}
+										className='btn btn-outline-danger fw-bold'>
 										Breakfast
 									</button>
 								</li>
 								<li className='nav-item mx-3'>
 									<button
 										onClick={handleDinner}
-										className='btn btn-primary mx-3'>
+										className='btn btn-outline-danger fw-bold'>
 										Dinner
 									</button>
 								</li>
 								<li className='nav-item'>
-									<button onClick={handleLunch} className='btn btn-primary'>
+									<button
+										onClick={handleLunch}
+										className='btn btn-outline-danger fw-bold'>
 										Lunch
 									</button>
 								</li>
@@ -70,9 +70,9 @@ const FoodContainer = () => {
 
 			<div className='container py-4'>
 				<div className='row row-cols-1 row-cols-md-3 g-4'>
-					{loadFoods.map(food => (
-						<Food key={food.id} food={food} />
-					))}
+					{loadFoods.length === 0
+						? foods.slice(0, 6).map(food => <Food key={food.id} food={food} />)
+						: loadFoods.map(food => <Food key={food.id} food={food} />)}
 				</div>
 			</div>
 		</>
