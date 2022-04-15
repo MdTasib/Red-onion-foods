@@ -1,0 +1,11 @@
+.header {
+	background-image: url("../../images/extra/headerbg.png");
+	background-position: center;
+	padding: 13em 0;
+}
+
+.header h2 {
+	font-size: 48px;
+	padding-bottom: 2rem;
+	font-weight: 700;
+}
