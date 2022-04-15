@@ -24,57 +24,41 @@ const FoodContainer = () => {
 	};
 
 	return (
-		<>
-			<div className='py-3'>
-				<nav className='navbar navbar-expand-lg navbar-light'>
-					<div className='container'>
+		<div className='container'>
+			<div className='py-5'>
+				<ul className='d-flex justify-content-center list-unstyled'>
+					<li>
 						<button
-							className='navbar-toggler'
-							type='button'
-							data-bs-toggle='collapse'
-							data-bs-target='#navbarNav'
-							aria-controls='navbarNav'
-							aria-expanded='false'
-							aria-label='Toggle navigation'>
-							<span className='navbar-toggler-icon'></span>
+							onClick={handleBreakfast}
+							className='btn btn-outline-danger fw-bold'>
+							Breakfast
 						</button>
-						<div className='collapse navbar-collapse' id='navbarNav'>
-							<ul className='navbar-nav mx-auto'>
-								<li className='nav-item mx-3'>
-									<button
-										onClick={handleBreakfast}
-										className='btn btn-outline-danger fw-bold'>
-										Breakfast
-									</button>
-								</li>
-								<li className='nav-item mx-3'>
-									<button
-										onClick={handleDinner}
-										className='btn btn-outline-danger fw-bold'>
-										Dinner
-									</button>
-								</li>
-								<li className='nav-item'>
-									<button
-										onClick={handleLunch}
-										className='btn btn-outline-danger fw-bold'>
-										Lunch
-									</button>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</nav>
+					</li>
+					<li className='mx-3'>
+						<button
+							onClick={handleDinner}
+							className='btn btn-outline-danger fw-bold'>
+							Dinner
+						</button>
+					</li>
+					<li>
+						<button
+							onClick={handleLunch}
+							className='btn btn-outline-danger fw-bold'>
+							Lunch
+						</button>
+					</li>
+				</ul>
 			</div>
 
-			<div className='container py-4 mb-3'>
-				<div className='row row-cols-1 row-cols-md-3 g-4'>
+			<div className='py-4 mb-3'>
+				<div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
 					{loadFoods.length === 0
 						? foods.slice(0, 6).map(food => <Food key={food.id} food={food} />)
 						: loadFoods.map(food => <Food key={food.id} food={food} />)}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
