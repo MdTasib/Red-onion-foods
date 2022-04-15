@@ -11,7 +11,7 @@ const Food = ({ food }) => {
 				<div className='card-body'>
 					<p className='card-title'>{name}</p>
 					<small className='card-text'>{description.slice(0, 50)}</small>
-					<h5 className='text-danger mt-2'>$ {price}</h5>
+					<h5 className='text-danger mt-2'>${price}</h5>
 				</div>
 			</div>
 		</div>

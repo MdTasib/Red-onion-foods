@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFood from "../../Hooks/useFood";
-import CustomLink from "../CustomLink/CustomLink";
 import Food from "../Food/Food";
 
 const FoodContainer = () => {
@@ -26,7 +25,7 @@ const FoodContainer = () => {
 
 	return (
 		<>
-			<div className='py-4 '>
+			<div className='py-3'>
 				<nav className='navbar navbar-expand-lg navbar-light'>
 					<div className='container'>
 						<button
@@ -68,7 +67,7 @@ const FoodContainer = () => {
 				</nav>
 			</div>
 
-			<div className='container py-4'>
+			<div className='container py-4 mb-3'>
 				<div className='row row-cols-1 row-cols-md-3 g-4'>
 					{loadFoods.length === 0
 						? foods.slice(0, 6).map(food => <Food key={food.id} food={food} />)

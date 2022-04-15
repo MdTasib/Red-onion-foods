@@ -27,19 +27,19 @@ const Navbar = () => {
 								<img src={cartIcon} alt='' height='30' />
 							</Link>
 						</li>
-						<li className='nav-item mx-3'>
+						<li className='nav-item'>
 							<Link className='nav-link active' aria-current='page' to='/home'>
-								Home
+								<small>Home</small>
 							</Link>
 						</li>
-						<li className='nav-item mx-3'>
+						<li className='nav-item mx-2'>
 							<Link className='nav-link' to='/login'>
-								Login
+								<small>Login</small>
 							</Link>
 						</li>
 						<li className='nav-item'>
 							<Link className='nav-link' to='/singup'>
-								Sing Up
+								<small>Sing Up</small>
 							</Link>
 						</li>
 					</ul>
