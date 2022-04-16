@@ -1,11 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Food.css";
 
 const Food = ({ food }) => {
+	const navigate = useNavigate();
 	const { name, image, price, description } = food;
 
+	const handleFoodNagigate = food => {
+		navigate(`/details/${food.id}`);
+	};
+
 	return (
-		<div className='col'>
+		<div className='col' onClick={() => handleFoodNagigate(food)}>
 			<div className='card h-100 border-0 text-center'>
 				<img src={image} className='card-img-top m-auto' alt='...' />
 				<div className='card-body'>
