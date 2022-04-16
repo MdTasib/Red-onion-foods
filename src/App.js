@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Singup from "./components/Singup/Singup";
 import Login from "./components/Login/Login";
 import FoodDetails from "./components/FoodDetails/FoodDetails";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<Route path='/details/:id' element={<FoodDetails />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/singup' element={<Singup />} />
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 			<Footer />
 		</>
