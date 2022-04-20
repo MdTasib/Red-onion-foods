@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import useFood from "../../Hooks/useFood";
+import useSelectedFood from "../../Hooks/useSelectedFood";
+import deleteIcon from "../../images/icons/delete.png";
 
 const CheckOut = () => {
 	const { id } = useParams();
-	const [foods, setFoods] = useFood();
-	const [selectedFood, setSelectedFood] = useState({});
-
-	useEffect(() => {
-		const detailsFood = foods.find(food => food.id == id);
-		setSelectedFood(detailsFood);
-	}, [id, foods]);
+	const [selectedFood, setSelectedFood] = useSelectedFood(id);
 
 	return (
 		<div className='container row'>
@@ -55,7 +50,13 @@ const CheckOut = () => {
 					</div>
 				</div>
 			</div>
-			<div className='col-md-6'></div>
+			<div className='col-md-6'>
+				<div className='d-flex justify-content-between py-2'>
+					<img src={selectedFood?.img} width='30' height='30' alt='' />
+					<small className='fw-bold ms-3'>{selectedFood?.name}</small>
+					<img className='' src={deleteIcon} width='30' height='30' alt='' />
+				</div>
+			</div>
 		</div>
 	);
 };

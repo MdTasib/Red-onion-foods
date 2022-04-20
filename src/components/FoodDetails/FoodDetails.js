@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useFood from "../../Hooks/useFood";
+import useSelectedFood from "../../Hooks/useSelectedFood";
 import cart from "../../images/icons/cart.png";
 
 const FoodDetails = () => {
 	const { id } = useParams();
-	const [foods, setFoods] = useFood();
-	const [selectedFood, setSelectedFood] = useState({});
+	const [selectedFood, setSelectedFood] = useSelectedFood(id);
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		const detailsFood = foods.find(food => food.id == id);
-		setSelectedFood(detailsFood);
-	}, [id, foods]);
 
 	const handleCheckout = id => {
 		navigate(`/checkout/${id}`);
