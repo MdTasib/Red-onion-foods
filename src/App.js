@@ -6,6 +6,7 @@ import Singup from "./components/Singup/Singup";
 import Login from "./components/Login/Login";
 import FoodDetails from "./components/FoodDetails/FoodDetails";
 import NotFound from "./components/NotFound/NotFound";
+import CheckOut from "./components/CheckOut/CheckOut";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
 				<Route path='/' element={<Home />} />
 				<Route path='/home' element={<Home />} />
 				<Route path='/details/:id' element={<FoodDetails />} />
+				<Route path='/checkout/:id' element={<CheckOut />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/singup' element={<Singup />} />
 				<Route path='*' element={<NotFound />} />
