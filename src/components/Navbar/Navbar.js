@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../App";
 import logo from "../../images/extra/logo2.png";
 import cartIcon from "../../images/icons/cart.png";
 
 const Navbar = () => {
+	const [cart, setCart] = useContext(CartContext);
+
 	return (
 		<nav className='navbar navbar-expand-lg navbar-light'>
 			<div className='container'>
@@ -25,6 +28,9 @@ const Navbar = () => {
 						<li className='nav-item'>
 							<Link className='nav-link' to='/cart'>
 								<img src={cartIcon} alt='' height='30' />
+								<small className='bg-danger text-white px-2 py-1 ms-2 rounded-circle'>
+									{cart.length}
+								</small>
 							</Link>
 						</li>
 						<li className='nav-item'>

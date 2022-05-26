@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../App";
 
 const CheckOut = () => {
 	const [cart, setCart] = useContext(CartContext);
+	const navigate = useNavigate();
 
 	let price = 0;
 	cart.forEach(food => {
@@ -13,6 +15,11 @@ const CheckOut = () => {
 	let deliveryFee = Number(price) / 20;
 	let total = Number(price) + tax + deliveryFee;
 
+	const handleDeliver = event => {
+		event.preventDefault();
+		navigate("/purchase");
+	};
+
 	return (
 		<div className='container row justify-content-between'>
 			<div className='col-md-6'>
@@ -21,31 +28,34 @@ const CheckOut = () => {
 						<h4 className='border-bottom border-2 pb-2'>
 							Edit Delivery Details
 						</h4>
-						<form className=''>
+						<form onSubmit={handleDeliver}>
 							<input
 								type='text'
 								className='form-control my-3'
-								placeholder='Delivery Type'
+								placeholder='Your Name'
+								name='name'
+								required
 							/>
 							<input
 								type='text'
 								className='form-control my-3'
 								placeholder='Rood No'
+								name='rood'
+								required
 							/>
 							<input
 								type='text'
 								className='form-control my-3'
 								placeholder='Flat, suite and floor'
+								name='floor'
+								required
 							/>
 							<input
 								type='text'
 								className='form-control my-3'
 								placeholder='Business Name'
-							/>
-							<input
-								type='text'
-								className='form-control my-3'
-								placeholder='Add Delivery Instructor'
+								name='business'
+								required
 							/>
 							<input
 								type='submit'

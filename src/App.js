@@ -9,6 +9,7 @@ import NotFound from "./components/NotFound/NotFound";
 import CheckOut from "./components/CheckOut/CheckOut";
 import { createContext, useState } from "react";
 import Cart from "./components/Cart/Cart";
+import Purchase from "./components/Purchase/Purchase";
 
 export const CartContext = createContext();
 
@@ -23,6 +24,7 @@ function App() {
 					<Route path='/' element={<Home />} />
 					<Route path='/home' element={<Home />} />
 					<Route path='/cart' element={<Cart />} />
+					<Route path='/purchase' element={<Purchase />} />
 					<Route path='/details/:id' element={<FoodDetails />} />
 					<Route path='/checkout/:id' element={<CheckOut />} />
 					<Route path='/login' element={<Login />} />
