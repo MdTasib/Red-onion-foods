@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { CartContext } from "../../App";
 import useSelectedFood from "../../Hooks/useSelectedFood";
-import cart from "../../images/icons/cart.png";
+import cartIcon from "../../images/icons/cart.png";
 
 const FoodDetails = () => {
 	const { id } = useParams();
 	const [selectedFood, setSelectedFood] = useSelectedFood(id);
 	const navigate = useNavigate();
+	const [cart, setCart] = useContext(CartContext);
 
+	const newCart = [...cart, selectedFood];
 	const handleCheckout = id => {
 		navigate(`/checkout/${id}`);
+		setCart(newCart);
 	};
 
 	return (
@@ -22,10 +26,8 @@ const FoodDetails = () => {
 					<button
 						onClick={() => handleCheckout(selectedFood?.id)}
 						className='btn btn-outline-danger'>
-						<img src={cart} width='30' alt='' /> ADD
+						<img src={cartIcon} width='30' alt='' /> ADD
 					</button>
-
-					<div className=''></div>
 				</div>
 				<div className='col-md-6 text-end'>
 					<img src={selectedFood?.image} className='w-75' alt='' />
